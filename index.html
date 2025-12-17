@@ -81,6 +81,9 @@
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x000000, 0); // 透明背景
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
     document.body.appendChild(renderer.domElement);
 
     /* ---------- 后期 ---------- */
@@ -144,13 +147,14 @@
 
     const textureLoader = new THREE.TextureLoader();
     let focusedPhoto = null;
-    let mode = "COLLAPSED";
+    let mode = "SCATTERED";
 
     document.getElementById("photos").addEventListener("change", (e) => {
       const files = Array.from(e.target.files);
       files.forEach((file) => {
         const url = URL.createObjectURL(file);
         textureLoader.load(url, (texture) => {
+          texture.colorSpace = THREE.SRGBColorSpace;
           const material = new THREE.MeshBasicMaterial({
             map: texture,
             transparent: true
@@ -276,3 +280,4 @@
   </script>
 </body>
 </html>
+
