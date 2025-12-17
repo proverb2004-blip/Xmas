@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>Christmas Memory Tree</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-html,body{
-  margin:0;
-  overflow:hidden;
-  background:radial-gradient(circle at top,#123026,#000);
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
+	<script type="importmap">
+	{
+  	"imports": {
+ 	   "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+ 	   "three/examples/jsm/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+ 	 }
+	}
+	</script>
+
+	<meta charset="UTF-8">
+	<title>Christmas Memory Tree</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		html,body{
+  		margin:0;
+ 		overflow:hidden;
+  		background:radial-gradient(circle at top,#123026,#000);
+  		font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+		}
 
 #ui{
   position:fixed;
@@ -47,10 +56,10 @@ input{
 </div>
 
 <script type="module">
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
-import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/postprocessing/UnrealBloomPass.js";
+import * as THREE from "three";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 /* ==================== 基础 ==================== */
 const scene = new THREE.Scene();
